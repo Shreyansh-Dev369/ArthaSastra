@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   KeyRound,
   Compass,
@@ -10,11 +10,7 @@ import {
   Lock,
   Activity,
   CheckCircle2,
-  AlertTriangle,
-  RotateCcw,
-  Binary,
   Layers,
-  ChevronRight,
 } from 'lucide-react';
 
 interface HeroArchiveProps {
@@ -28,37 +24,6 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
   onExploreNarrative,
   onScrollToSection,
 }) => {
-  // Interactive Seal Simulator State
-  const [sealState, setSealState] = useState<'intact' | 'tampered'>('intact');
-  const [activeNode, setActiveNode] = useState<number | null>(null);
-
-  const nodeInfo = [
-    {
-      id: 1,
-      glyph: '⌁',
-      name: 'Dhvani (Acoustic / Classical Shift)',
-      desc: 'Transposes message symbols via monoalphabetic & polyalphabetic substitution without altering text casing.',
-    },
-    {
-      id: 2,
-      glyph: '✓',
-      name: 'Satya (HMAC-SHA-256 Provenance)',
-      desc: 'Computes keyed cryptographic authentication tag ensuring unforgeable sender provenance.',
-    },
-    {
-      id: 3,
-      glyph: '#',
-      name: 'Śāstrīya (Cryptographic Digest)',
-      desc: '256-bit deterministic hash generated over canonically serialized envelope payload.',
-    },
-    {
-      id: 4,
-      glyph: '◇',
-      name: 'Gūḍha (Sovereign Mudrā Impress)',
-      desc: 'Classical clay/lac royal seal impression evolved into modern zero-trust verification.',
-    },
-  ];
-
   const handleJump = (id: string) => {
     if (onScrollToSection) {
       onScrollToSection(id);
@@ -71,18 +36,18 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
   return (
     <section
       id="hero"
-      className="relative min-h-[96vh] flex flex-col justify-center overflow-hidden archival-grid py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-theme-border transition-colors duration-200"
+      className="relative min-h-[96vh] flex flex-col justify-center items-center overflow-hidden archival-grid py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-theme-border transition-colors duration-200"
     >
       {/* =========================================================================
           GRAND LUMINOUS BACKGROUND CELESTIAL & VEDIC CHAKRA GEOMETRY (SVG)
           ========================================================================= */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-65 dark:opacity-45 transition-opacity duration-300">
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-65 dark:opacity-40 transition-opacity duration-300">
         {/* Ambient Radial Core Halo */}
         <div className="absolute w-[650px] h-[650px] rounded-full bg-theme-bronze/15 dark:bg-theme-bronze/10 filter blur-3xl pointer-events-none" />
         <div className="absolute w-[450px] h-[450px] rounded-full bg-theme-seal/15 dark:bg-theme-seal/10 filter blur-2xl pointer-events-none" />
 
         <svg
-          className="w-[780px] h-[780px] sm:w-[980px] sm:h-[980px] animate-spin-slow text-theme-bronze origin-center"
+          className="w-[820px] h-[820px] sm:w-[980px] sm:h-[980px] lg:w-[1100px] lg:h-[1100px] animate-spin-slow text-theme-bronze origin-center"
           viewBox="0 0 600 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -141,310 +106,127 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
       <div className="absolute inset-0 bg-radial-radial from-transparent via-theme-canvas/40 to-theme-canvas pointer-events-none" />
 
       {/* =========================================================================
-          HERO INTERFACE CONTENT (2-COLUMN ARCHITECTURAL GRID)
+          HERO INTERFACE CONTENT (CENTERED SYMMETRICAL COMPOSITION)
           ========================================================================= */}
-      <div className="relative max-w-7xl mx-auto z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="relative max-w-4xl lg:max-w-5xl mx-auto z-10 w-full text-center space-y-7 sm:space-y-8">
+        
+        {/* Curated Archival Eyebrow */}
+        <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-theme-border-strong bg-theme-surface/90 backdrop-blur shadow-sm mx-auto">
+          <span className="w-2 h-2 rounded-full bg-theme-seal animate-pulse" />
+          <span className="text-xs font-mono tracking-[0.2em] uppercase text-theme-bronze font-bold">
+            Kauṭilyan Statecraft & Cryptographic Provenance
+          </span>
+          <span className="text-theme-muted opacity-40">|</span>
+          <span className="text-[11px] font-mono tracking-wider text-theme-secondary font-medium">
+            Book II: Śāsanādhikāra
+          </span>
+        </div>
+
+        {/* Authentic Sanskrit Epigraph from Arthaśāstra II.10 */}
+        <div className="p-4 sm:p-5 rounded-2xl border border-theme-border-strong bg-theme-bronze/5 dark:bg-theme-bronze/10 backdrop-blur-sm space-y-1.5 text-center max-w-2xl mx-auto shadow-sm">
+          <div className="flex items-center justify-center space-x-3 text-[10px] font-mono uppercase tracking-widest text-theme-bronze font-bold">
+            <span>Kauṭilīya Arthaśāstra</span>
+            <span>·</span>
+            <span>Book II, Chapter 10, Verse 1</span>
+          </div>
+          <p className="font-editorial text-base sm:text-lg text-theme-primary font-bold italic tracking-wide">
+            “शासनप्रधानो हि राजा, तन्मूलत्वात् सर्वव्यवहाराणाम् ॥”
+          </p>
+          <p className="text-xs sm:text-sm text-theme-secondary font-sans leading-relaxed">
+            <em className="text-theme-primary font-medium">
+              “The authority of the sovereign is anchored in verified royal dispatches; for all transactions of the realm flow from them.”
+            </em>
+          </p>
+        </div>
+
+        {/* Master Headline (Act I: The Archive) */}
+        <div className="space-y-4 max-w-3xl mx-auto">
+          <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-theme-primary leading-[1.06]">
+            Power travels through <br />
+            <span className="text-theme-bronze">
+              verified information.
+            </span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-theme-secondary leading-relaxed font-sans">
+            In the statecraft of ancient India, a royal writ commanded obedience not through blind faith in the courier, 
+            but through the unforgeable sovereign seal (<span className="font-mono text-sm text-theme-primary font-bold">Mudrā</span>). 
+            Discover how classical substitution ciphers evolved into modern mathematical authentication.
+          </p>
+        </div>
+
+        {/* Core Epistemological Distinction Box with Mini Live Ticker */}
+        <div className="max-w-2xl mx-auto p-4 sm:p-5 rounded-2xl border border-theme-border bg-theme-surface/85 backdrop-blur-sm text-left text-xs sm:text-sm space-y-2.5 shadow-card">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-theme-bronze font-mono uppercase tracking-wider text-[11px] font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-theme-seal" />
+              <span>Core Cryptographic Distinction</span>
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-theme-seal-bg border border-theme-seal-border text-theme-seal font-semibold">
+              Zero Trust Architecture
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm leading-relaxed text-theme-secondary">
+            <strong className="text-theme-primary">Transformation vs Authentication:</strong> Obfuscating text via Caesar or Vigenère shifts merely alters visual structure without securing origin or integrity. Absolute provenance requires deterministic mathematical cryptographic verification (<span className="font-mono text-theme-seal font-bold">HMAC-SHA-256</span>).
+          </p>
           
-          {/* LEFT COLUMN: Headings, Epigraph, Epistemology, Directives (7 Cols) */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-7">
-            {/* Curated Archival Eyebrow */}
-            <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-theme-border-strong bg-theme-surface/90 backdrop-blur shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-theme-seal animate-pulse" />
-              <span className="text-xs font-mono tracking-[0.2em] uppercase text-theme-bronze font-bold">
-                Kauṭilyan Statecraft & Cryptographic Provenance
-              </span>
-              <span className="text-theme-muted opacity-40">|</span>
-              <span className="text-[11px] font-mono tracking-wider text-theme-secondary font-medium">
-                Book II: Śāsanādhikāra
-              </span>
-            </div>
-
-            {/* Authentic Sanskrit Epigraph from Arthaśāstra II.10 */}
-            <div className="p-3.5 sm:p-4 rounded-xl border border-theme-border-strong bg-theme-bronze/5 dark:bg-theme-bronze/10 backdrop-blur-sm space-y-1.5 text-left max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-theme-bronze font-bold">
-                <span>Kauṭilīya Arthaśāstra · II.10.1</span>
-                <span>Śāsanādhikāra</span>
-              </div>
-              <p className="font-editorial text-sm sm:text-base text-theme-primary font-bold italic tracking-wide">
-                “शासनप्रधानो हि राजा, तन्मूलत्वात् सर्वव्यवहाराणाम् ॥”
-              </p>
-              <p className="text-[11px] sm:text-xs text-theme-secondary font-sans leading-relaxed">
-                <em className="text-theme-primary font-medium">“The authority of the sovereign is anchored in verified royal dispatches; for all transactions of the realm flow from them.”</em>
-              </p>
-            </div>
-
-            {/* Master Headline (Act I: The Archive) */}
-            <div className="space-y-3.5 sm:space-y-4">
-              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-theme-primary leading-[1.06]">
-                Power travels through <br />
-                <span className="text-theme-bronze">
-                  verified information.
-                </span>
-              </h1>
-              <p className="max-w-2xl mx-auto lg:mx-0 text-base sm:text-lg text-theme-secondary leading-relaxed font-sans">
-                In the statecraft of ancient India, a royal writ commanded obedience not through blind faith in the courier, 
-                but through the unforgeable sovereign seal (<span className="font-mono text-sm text-theme-primary font-bold">Mudrā</span>). 
-                Discover how classical substitution ciphers evolved into modern mathematical authentication.
-              </p>
-            </div>
-
-            {/* Core Epistemological Distinction Box with Live Ticker */}
-            <div className="max-w-xl mx-auto lg:mx-0 p-4 rounded-xl border border-theme-border bg-theme-surface/85 backdrop-blur-sm text-left text-xs sm:text-sm space-y-2 shadow-card">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2 text-theme-bronze font-mono uppercase tracking-wider text-[11px] font-bold">
-                  <Sparkles className="w-3.5 h-3.5 text-theme-seal" />
-                  <span>Core Cryptographic Distinction</span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-theme-seal-bg border border-theme-seal-border text-theme-seal font-semibold">
-                  Zero Trust
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-theme-secondary">
-                <strong className="text-theme-primary">Transformation vs Authentication:</strong> Obfuscating text via Caesar or Vigenère shifts merely alters visual structure. Absolute integrity and origin provenance require mathematical cryptographic verification (<span className="font-mono text-theme-seal font-bold">HMAC-SHA-256</span>).
-              </p>
-              
-              {/* Mini Dispatch Provenance Ticker */}
-              <div className="pt-1.5 border-t border-theme-border flex items-center justify-between text-[10px] font-mono text-theme-muted">
-                <span className="flex items-center space-x-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-theme-seal" />
-                  <span className="text-theme-secondary">Origin: envoy_pataliputra</span>
-                </span>
-                <span className="text-theme-bronze font-semibold">HMAC: 3e9a...7b12</span>
-                <span className="text-theme-seal font-bold">✓ VERIFIED</span>
-              </div>
-            </div>
-
-            {/* Action Directives & Section Pills */}
-            <div className="space-y-3.5 pt-1">
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
-                <button
-                  onClick={onEnterLab}
-                  className="px-6 py-3.5 rounded-xl bg-theme-seal text-theme-canvas font-mono font-bold text-xs tracking-wider uppercase shadow-seal hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center space-x-2"
-                >
-                  <KeyRound className="w-4 h-4" />
-                  <span>Open Dispatch Console</span>
-                </button>
-
-                <button
-                  onClick={onExploreNarrative}
-                  className="px-6 py-3.5 rounded-xl border border-theme-border-strong bg-theme-surface hover:bg-theme-subtle text-theme-primary font-mono font-medium text-xs tracking-wider uppercase transition-all flex items-center space-x-2 shadow-sm"
-                >
-                  <Compass className="w-4 h-4 text-theme-bronze" />
-                  <span>The Nine Archival Acts</span>
-                </button>
-              </div>
-
-              {/* Quick Jump Section Pills */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-theme-muted font-bold mr-1">
-                  Quick Jump:
-                </span>
-                <button
-                  onClick={() => handleJump('ciphers')}
-                  className="px-2.5 py-1 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
-                >
-                  <span>Classical Ciphers</span>
-                </button>
-                <button
-                  onClick={() => handleJump('analysis')}
-                  className="px-2.5 py-1 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
-                >
-                  <span>Cryptanalysis</span>
-                </button>
-                <button
-                  onClick={() => handleJump('tests')}
-                  className="px-2.5 py-1 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
-                >
-                  <span>20 System Tests</span>
-                </button>
-              </div>
-            </div>
+          {/* Mini Dispatch Provenance Ticker */}
+          <div className="pt-2 border-t border-theme-border flex flex-col sm:flex-row sm:items-center justify-between text-[11px] font-mono text-theme-muted gap-1.5">
+            <span className="flex items-center space-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-theme-seal animate-pulse" />
+              <span className="text-theme-secondary">Origin: envoy_pataliputra</span>
+            </span>
+            <span className="text-theme-bronze font-semibold">HMAC-SHA-256: 3e9a...7b12</span>
+            <span className="text-theme-seal font-bold flex items-center space-x-1">
+              <CheckCircle2 className="w-3.5 h-3.5 inline" />
+              <span>AUTHENTIC / VERIFIED</span>
+            </span>
           </div>
+        </div>
 
-          {/* RIGHT COLUMN: THE INTERACTIVE KAUṬIILYA MUDRĀ SEAL LAB (5 Cols) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div
-              className={`relative w-full max-w-[400px] sm:max-w-[440px] rounded-3xl border transition-all duration-500 bg-theme-surface/90 backdrop-blur-md p-6 sm:p-7 shadow-card flex flex-col items-center justify-between min-h-[420px] overflow-hidden group ${
-                sealState === 'intact'
-                  ? 'border-theme-border-strong shadow-card'
-                  : 'border-theme-vermilion-border shadow-2xl ring-1 ring-theme-vermilion/40'
-              }`}
-              aria-label="Kauṭilyan Secure Dispatch Mudrā Seal Visualization"
+        {/* Action Directives & Section Pills */}
+        <div className="space-y-4 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={onEnterLab}
+              className="px-7 py-3.5 rounded-xl bg-theme-seal text-theme-canvas font-mono font-bold text-xs tracking-wider uppercase shadow-seal hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center space-x-2"
             >
-              {/* Internal Concentric Radial Aura */}
-              <div
-                className={`absolute inset-0 bg-radial-radial transition-all duration-500 pointer-events-none ${
-                  sealState === 'intact'
-                    ? 'from-theme-seal/15 via-transparent to-transparent'
-                    : 'from-theme-vermilion/20 via-transparent to-transparent'
-                }`}
-              />
+              <KeyRound className="w-4 h-4" />
+              <span>Open Dispatch Console</span>
+            </button>
 
-              {/* Background Circular Radar Watermark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[330px] h-[330px] rounded-full border border-theme-seal/20" />
-                <div className="w-[250px] h-[250px] rounded-full border border-theme-seal/30" />
-                <div className="w-[170px] h-[170px] rounded-full border border-theme-border-strong" />
-              </div>
-
-              {/* Top Card Header with Dynamic Integrity Status */}
-              <div className="w-full flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-theme-muted z-10 border-b border-theme-border pb-3">
-                <span className="flex items-center space-x-1.5 font-bold">
-                  <span
-                    className={`w-2 h-2 rounded-full animate-pulse ${
-                      sealState === 'intact' ? 'bg-theme-seal' : 'bg-theme-vermilion'
-                    }`}
-                  />
-                  <span className={sealState === 'intact' ? 'text-theme-seal' : 'text-theme-vermilion'}>
-                    {sealState === 'intact' ? 'Sealed Mudrā' : 'Intercepted Mudrā'}
-                  </span>
-                </span>
-                <span
-                  className={`px-2 py-0.5 rounded border text-[10px] font-bold ${
-                    sealState === 'intact'
-                      ? 'bg-theme-seal-bg border-theme-seal-border text-theme-seal'
-                      : 'bg-theme-vermilion-bg border-theme-vermilion-border text-theme-vermilion'
-                  }`}
-                >
-                  {sealState === 'intact' ? 'SEAL INTACT' : 'TAMPER DETECTED'}
-                </span>
-              </div>
-
-              {/* CENTER CIRCULAR ORBIT & SACRED CORE MONOGRAM */}
-              <div className="relative my-7 flex items-center justify-center z-10">
-                {/* Rotating Dashed Orbital Track */}
-                <div
-                  className={`w-52 h-52 sm:w-60 sm:h-60 rounded-full border border-dashed transition-colors duration-500 animate-spin-slow flex items-center justify-center relative ${
-                    sealState === 'intact' ? 'border-theme-seal/60' : 'border-theme-vermilion/70'
-                  }`}
-                >
-                  {/* Orbit Node 1: Top (Transmission Dhvani) */}
-                  <button
-                    onClick={() => setActiveNode(activeNode === 1 ? null : 1)}
-                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg bg-theme-surface border border-theme-seal/80 shadow-sm flex items-center justify-center text-theme-seal text-xs font-mono font-bold hover:scale-110 transition-transform focus:outline-none"
-                    title="Click to inspect: Dhvani Signal"
-                    aria-label="Node 1: Dhvani Signal"
-                  >
-                    ⌁
-                  </button>
-
-                  {/* Orbit Node 2: Bottom (HMAC Provenance Verified) */}
-                  <button
-                    onClick={() => setActiveNode(activeNode === 2 ? null : 2)}
-                    className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg bg-theme-surface border border-theme-seal/80 shadow-sm flex items-center justify-center text-theme-seal text-xs font-mono font-bold hover:scale-110 transition-transform focus:outline-none"
-                    title="Click to inspect: Satya Verification"
-                    aria-label="Node 2: Satya Verification"
-                  >
-                    ✓
-                  </button>
-
-                  {/* Orbit Node 3: Right (Cryptographic Digest) */}
-                  <button
-                    onClick={() => setActiveNode(activeNode === 3 ? null : 3)}
-                    className="absolute top-1/2 -right-3.5 -translate-y-1/2 w-8 h-8 rounded-lg bg-theme-surface border border-theme-seal/80 shadow-sm flex items-center justify-center text-theme-seal text-xs font-mono font-bold hover:scale-110 transition-transform focus:outline-none"
-                    title="Click to inspect: 256-bit Digest"
-                    aria-label="Node 3: 256-bit Digest"
-                  >
-                    #
-                  </button>
-
-                  {/* Orbit Node 4: Left (Royal Diamond Mudrā) */}
-                  <button
-                    onClick={() => setActiveNode(activeNode === 4 ? null : 4)}
-                    className="absolute top-1/2 -left-3.5 -translate-y-1/2 w-8 h-8 rounded-lg bg-theme-surface border border-theme-seal/80 shadow-sm flex items-center justify-center text-theme-seal text-xs font-mono font-bold hover:scale-110 transition-transform focus:outline-none"
-                    title="Click to inspect: Sovereign Mudrā"
-                    aria-label="Node 4: Sovereign Mudrā"
-                  >
-                    ◇
-                  </button>
-                </div>
-
-                {/* Central Royal Core Badge (Sanskrit 'अ' Monogram) */}
-                <div
-                  className={`absolute w-24 h-24 sm:w-28 sm:h-28 rounded-2xl transition-all duration-500 text-theme-canvas flex flex-col items-center justify-center shadow-seal border border-theme-bronze/40 group-hover:scale-105 ${
-                    sealState === 'intact'
-                      ? 'bg-gradient-to-br from-theme-seal to-emerald-700'
-                      : 'bg-gradient-to-br from-theme-vermilion to-rose-700 ring-2 ring-theme-vermilion/50'
-                  }`}
-                >
-                  <span className="font-editorial text-3xl sm:text-4xl font-bold tracking-wider leading-none text-theme-canvas drop-shadow-sm">
-                    अ
-                  </span>
-                  <span className="text-[10px] font-mono tracking-widest uppercase font-bold text-theme-canvas/90 mt-1">
-                    {sealState === 'intact' ? 'MUDRĀ' : 'BROKEN'}
-                  </span>
-                </div>
-              </div>
-
-              {/* Dynamic Interactive Node Inspection Tooltip */}
-              {activeNode !== null ? (
-                <div className="w-full p-2.5 rounded-xl bg-theme-inset border border-theme-border text-left space-y-1 z-10 animate-fadeIn mb-3">
-                  <div className="flex justify-between items-center text-[10px] font-mono font-bold text-theme-bronze">
-                    <span>{nodeInfo[activeNode - 1].name}</span>
-                    <button
-                      onClick={() => setActiveNode(null)}
-                      className="text-theme-muted hover:text-theme-primary px-1"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  <p className="text-[11px] text-theme-secondary font-sans leading-tight">
-                    {nodeInfo[activeNode - 1].desc}
-                  </p>
-                </div>
-              ) : (
-                /* Dynamic Cryptographic Hash Tag Readout */
-                <div className="w-full p-2 rounded-xl bg-theme-inset border border-theme-border font-mono text-[10px] text-center z-10 mb-3 space-y-0.5">
-                  <div className="flex justify-between text-theme-muted">
-                    <span>HMAC-SHA-256 TAG</span>
-                    <span className={sealState === 'intact' ? 'text-theme-seal font-bold' : 'text-theme-vermilion font-bold'}>
-                      {sealState === 'intact' ? 'ORIGIN MATCH' : 'TAG MISMATCH'}
-                    </span>
-                  </div>
-                  <div className="text-theme-primary truncate font-bold select-all">
-                    {sealState === 'intact'
-                      ? 'ca96a84d6178e6fdec2ed0a677e441415324cac800b4'
-                      : '⚠️ MODIFIED_PAYLOAD_HASH_DISAVOWED_BY_RECEIVER'}
-                  </div>
-                </div>
-              )}
-
-              {/* Interactive Live Simulator Controls */}
-              <div className="w-full grid grid-cols-2 gap-2 z-10 border-t border-theme-border pt-3">
-                <button
-                  onClick={() => {
-                    setSealState('intact');
-                    setActiveNode(null);
-                  }}
-                  className={`py-1.5 px-2.5 rounded-lg text-[10px] font-mono uppercase tracking-wider font-bold transition-all flex items-center justify-center space-x-1.5 ${
-                    sealState === 'intact'
-                      ? 'bg-theme-seal text-theme-canvas shadow-sm'
-                      : 'bg-theme-inset border border-theme-border text-theme-secondary hover:text-theme-primary'
-                  }`}
-                >
-                  <CheckCircle2 className="w-3 h-3" />
-                  <span>Verify Seal</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setSealState('tampered');
-                    setActiveNode(null);
-                  }}
-                  className={`py-1.5 px-2.5 rounded-lg text-[10px] font-mono uppercase tracking-wider font-bold transition-all flex items-center justify-center space-x-1.5 ${
-                    sealState === 'tampered'
-                      ? 'bg-theme-vermilion text-theme-canvas shadow-sm'
-                      : 'bg-theme-inset border border-theme-border text-theme-secondary hover:text-theme-primary'
-                  }`}
-                >
-                  <AlertTriangle className="w-3 h-3" />
-                  <span>Simulate Tamper</span>
-                </button>
-              </div>
-            </div>
+            <button
+              onClick={onExploreNarrative}
+              className="px-7 py-3.5 rounded-xl border border-theme-border-strong bg-theme-surface hover:bg-theme-subtle text-theme-primary font-mono font-medium text-xs tracking-wider uppercase transition-all flex items-center space-x-2 shadow-sm"
+            >
+              <Compass className="w-4 h-4 text-theme-bronze" />
+              <span>The Nine Archival Acts</span>
+            </button>
           </div>
 
+          {/* Quick Jump Section Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-theme-muted font-bold mr-1">
+              Direct Access:
+            </span>
+            <button
+              onClick={() => handleJump('ciphers')}
+              className="px-3 py-1.5 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
+            >
+              <span>Classical Ciphers</span>
+            </button>
+            <button
+              onClick={() => handleJump('analysis')}
+              className="px-3 py-1.5 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
+            >
+              <span>Cryptanalysis Workbench</span>
+            </button>
+            <button
+              onClick={() => handleJump('tests')}
+              className="px-3 py-1.5 rounded-lg text-[10px] font-mono bg-theme-inset border border-theme-border hover:border-theme-bronze text-theme-secondary hover:text-theme-primary transition-all flex items-center space-x-1"
+            >
+              <span>20 System Tests</span>
+            </button>
+          </div>
         </div>
 
         {/* =========================================================================
@@ -456,7 +238,7 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
             {/* Metric 1: Cipher Suite */}
             <button
               onClick={() => handleJump('ciphers')}
-              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-bronze text-left transition-all group focus:outline-none"
+              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-bronze text-left transition-all group focus:outline-none shadow-sm"
             >
               <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-theme-muted font-bold mb-1.5">
                 <span>01 / Cipher Suite</span>
@@ -473,7 +255,7 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
             {/* Metric 2: Message Integrity */}
             <button
               onClick={() => handleJump('dispatch')}
-              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-seal text-left transition-all group focus:outline-none"
+              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-seal text-left transition-all group focus:outline-none shadow-sm"
             >
               <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-theme-muted font-bold mb-1.5">
                 <span>02 / Provenance Seal</span>
@@ -490,7 +272,7 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
             {/* Metric 3: Clearance Tiers */}
             <button
               onClick={() => handleJump('dispatch')}
-              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-bronze text-left transition-all group focus:outline-none"
+              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-bronze text-left transition-all group focus:outline-none shadow-sm"
             >
               <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-theme-muted font-bold mb-1.5">
                 <span>03 / Clearance Tiers</span>
@@ -507,7 +289,7 @@ export const HeroArchive: React.FC<HeroArchiveProps> = ({
             {/* Metric 4: Built-in Verification */}
             <button
               onClick={() => handleJump('tests')}
-              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-seal text-left transition-all group focus:outline-none"
+              className="p-4 rounded-2xl bg-theme-surface/75 border border-theme-border hover:border-theme-seal text-left transition-all group focus:outline-none shadow-sm"
             >
               <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-theme-muted font-bold mb-1.5">
                 <span>04 / System Audit</span>
