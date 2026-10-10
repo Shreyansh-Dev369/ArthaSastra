@@ -1,36 +1,49 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import React, { useEffect, useState, useRef } from 'react';
+import { ChevronRight } from 'lucide-react';
 
 interface BrandedPreloaderProps {
   onComplete: () => void;
 }
 
 export const BrandedPreloader: React.FC<BrandedPreloaderProps> = ({ onComplete }) => {
-  const { theme } = useTheme();
   const [phase, setPhase] = useState<number>(0);
-  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+  const completedRef = useRef(false);
+
+  const finish = () => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    setIsFadingOut(true);
+    try {
+      sessionStorage.setItem('arthasastra-preloader-seen', 'true');
+    } catch {
+      // storage unavailable safe fallback
+    }
+    setTimeout(() => {
+      onComplete();
+    }, 350);
+  };
 
   useEffect(() => {
     // Check if user already saw preloader this session or prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const hasSeen = sessionStorage.getItem('arthasastra-preloader-seen');
-
-    if (prefersReducedMotion || hasSeen) {
-      onComplete();
-      return;
+    try {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasSeen = sessionStorage.getItem('arthasastra-preloader-seen');
+      if (prefersReducedMotion || hasSeen) {
+        onComplete();
+        return;
+      }
+    } catch {
+      // ignore
     }
 
-    // Sequence timing
-    const t1 = setTimeout(() => setPhase(1), 250);  // Stroke & seal reveal
-    const t2 = setTimeout(() => setPhase(2), 650);  // Title typography reveal
-    const t3 = setTimeout(() => setPhase(3), 1050); // Status readout reveal
-    const t4 = setTimeout(() => {
-      setIsFadingOut(true);
-      sessionStorage.setItem('arthasastra-preloader-seen', 'true');
-      setTimeout(onComplete, 450); // Graceful fade out
-    }, 1500);
+    // Sequence stages
+    const t1 = setTimeout(() => setPhase(1), 200);  // Sacred seal stroke
+    const t2 = setTimeout(() => setPhase(2), 500);  // Title typography
+    const t3 = setTimeout(() => setPhase(3), 850);  // Status readout
+    const t4 = setTimeout(finish, 1300);            // Guaranteed auto-exit
 
     return () => {
       clearTimeout(t1);
@@ -38,21 +51,23 @@ export const BrandedPreloader: React.FC<BrandedPreloaderProps> = ({ onComplete }
       clearTimeout(t3);
       clearTimeout(t4);
     };
-  }, [onComplete]);
+  }, []); // Run ONCE on mount, not resetting on parent re-renders!
 
   return (
     <div
       role="status"
       aria-live="polite"
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center transition-opacity duration-500 bg-theme-canvas text-theme-primary archival-grid select-none ${
+      onClick={finish}
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center transition-opacity duration-300 bg-theme-canvas text-theme-primary archival-grid cursor-pointer ${
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
+      title="Click anywhere to enter immediately"
     >
       {/* Outer Glow / Aura */}
       <div className="absolute w-80 h-80 rounded-full bg-theme-bronze/10 filter blur-3xl pointer-events-none" />
 
       {/* Center Sacred Emblem SVG with animated stroke */}
-      <div className="relative mb-6">
+      <div className="relative mb-6 pointer-events-none">
         <svg
           className="w-24 h-24 sm:w-28 sm:h-28"
           viewBox="0 0 120 120"
@@ -120,7 +135,7 @@ export const BrandedPreloader: React.FC<BrandedPreloaderProps> = ({ onComplete }
       </div>
 
       {/* Typography Hierarchy */}
-      <div className="text-center space-y-2 max-w-sm px-4">
+      <div className="text-center space-y-2 max-w-sm px-4 pointer-events-none">
         <h1
           className={`font-editorial text-2xl sm:text-3xl font-bold tracking-[0.25em] text-theme-primary transition-all duration-700 ${
             phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
@@ -148,6 +163,19 @@ export const BrandedPreloader: React.FC<BrandedPreloaderProps> = ({ onComplete }
           </span>
         </div>
       </div>
+
+      {/* Explicit One-Click Dismiss Button */}
+      <button
+        onClick={e => {
+          e.stopPropagation();
+          finish();
+        }}
+        className="mt-8 px-4 py-1.5 rounded-full border border-theme-border-strong bg-theme-surface/90 hover:bg-theme-subtle text-theme-primary text-xs font-mono flex items-center space-x-1.5 shadow-sm transition-all"
+        aria-label="Skip introduction and enter laboratory"
+      >
+        <span>Enter Archive</span>
+        <ChevronRight className="w-3.5 h-3.5 text-theme-bronze" />
+      </button>
     </div>
   );
 };

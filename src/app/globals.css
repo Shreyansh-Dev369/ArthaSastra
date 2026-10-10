@@ -3,60 +3,63 @@
 @tailwind utilities;
 
 /* =========================================================================
-   ARTHAŚĀSTRA — SEMANTIC THEME SYSTEM
+   ARTHAŚĀSTRA — HIGH-CONTRAST SEMANTIC THEME ARCHITECTURE
    Dark Theme: "The Royal Obsidian Archive"
    Light Theme: "The Illuminated Manuscript"
+   Strict WCAG 2.2 AA Contrast Compliance
    ========================================================================= */
 
 :root,
+:root[data-theme="dark"],
 html.dark,
 [data-theme="dark"] {
   --bg-canvas: #070a09;
   --bg-canvas-subtle: #0d1311;
   --bg-surface: #111815;
   --bg-surface-elevated: #16221d;
-  --bg-surface-inset: #090e0c;
-  --border-subtle: rgba(191, 160, 109, 0.16);
-  --border-strong: rgba(191, 160, 109, 0.35);
-  --text-primary: #f3f5ee;
+  --bg-surface-inset: #090f0c;
+  --border-subtle: rgba(191, 160, 109, 0.22);
+  --border-strong: rgba(191, 160, 109, 0.45);
+  --text-primary: #f5f7f2;
   --text-secondary: #9cb0a4;
-  --text-muted: #687a70;
+  --text-muted: #788a80;
   --accent-bronze: #bfa06d;
   --accent-gold: #d4b788;
   --seal-green: #83d94b;
-  --seal-green-bg: rgba(131, 217, 75, 0.12);
-  --seal-green-border: rgba(131, 217, 75, 0.35);
+  --seal-green-bg: rgba(131, 217, 75, 0.14);
+  --seal-green-border: rgba(131, 217, 75, 0.40);
   --seal-red: #f87171;
-  --seal-red-bg: rgba(248, 113, 113, 0.12);
-  --seal-red-border: rgba(248, 113, 113, 0.35);
+  --seal-red-bg: rgba(248, 113, 113, 0.14);
+  --seal-red-border: rgba(248, 113, 113, 0.40);
   --seal-amber: #fbbf24;
   --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
   --shadow-seal: 0 0 45px rgba(131, 217, 75, 0.2);
 }
 
+:root[data-theme="light"],
 html.light,
 [data-theme="light"] {
-  --bg-canvas: #f6f4ee;
-  --bg-canvas-subtle: #ece8dc;
+  --bg-canvas: #f5f3ec;
+  --bg-canvas-subtle: #ece7dc;
   --bg-surface: #ffffff;
-  --bg-surface-elevated: #faf8f3;
-  --bg-surface-inset: #ede8dc;
-  --border-subtle: rgba(130, 95, 50, 0.18);
-  --border-strong: rgba(130, 95, 50, 0.38);
-  --text-primary: #18231e;
-  --text-secondary: #485c51;
-  --text-muted: #74887d;
-  --accent-bronze: #8a6534;
-  --accent-gold: #9f753b;
-  --seal-green: #1a7833;
-  --seal-green-bg: rgba(26, 120, 51, 0.10);
-  --seal-green-border: rgba(26, 120, 51, 0.30);
-  --seal-red: #c53030;
-  --seal-red-bg: rgba(197, 48, 48, 0.10);
-  --seal-red-border: rgba(197, 48, 48, 0.30);
-  --seal-amber: #b45309;
+  --bg-surface-elevated: #faf8f2;
+  --bg-surface-inset: #f3efe6;
+  --border-subtle: rgba(140, 105, 55, 0.25);
+  --border-strong: rgba(140, 105, 55, 0.50);
+  --text-primary: #111915;
+  --text-secondary: #3e5246;
+  --text-muted: #5a6e63;
+  --accent-bronze: #7f5b2b;
+  --accent-gold: #8f6733;
+  --seal-green: #16652d;
+  --seal-green-bg: rgba(22, 101, 45, 0.10);
+  --seal-green-border: rgba(22, 101, 45, 0.35);
+  --seal-red: #b91c1c;
+  --seal-red-bg: rgba(185, 28, 28, 0.10);
+  --seal-red-border: rgba(185, 28, 28, 0.35);
+  --seal-amber: #92400e;
   --shadow-card: 0 14px 35px -12px rgba(90, 70, 40, 0.10), 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-seal: 0 0 35px rgba(26, 120, 51, 0.15);
+  --shadow-seal: 0 0 35px rgba(22, 101, 45, 0.18);
 }
 
 html {
@@ -71,7 +74,51 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-canvas);
   color: var(--text-primary);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Fix sticky header clipping section headings on jump */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* =========================================================================
+   ROCK-SOLID FORM CONTROLS READABILITY & USABILITY GUARANTEES
+   ========================================================================= */
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+textarea,
+select {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface-inset) !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  font-family: inherit;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted) !important;
+  -webkit-text-fill-color: var(--text-muted) !important;
+  opacity: 0.85 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent-bronze) !important;
+  outline: 2px solid var(--accent-bronze) !important;
+  outline-offset: 1px !important;
+}
+
+select option {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface) !important;
 }
 
 /* Custom Scrollbar */
@@ -109,8 +156,8 @@ body {
 html.light .archival-grid,
 [data-theme="light"] .archival-grid {
   background-image: 
-    linear-gradient(to right, rgba(130, 95, 50, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(130, 95, 50, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(140, 105, 55, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 105, 55, 0.07) 1px, transparent 1px);
 }
 
 /* Keyframe Animations */
@@ -128,16 +175,6 @@ html.light .archival-grid,
 }
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
-}
-
-/* Interactive Focus Ring */
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--accent-bronze);
-  outline-offset: 2px;
 }
 
 /* Reduced Motion Override */
