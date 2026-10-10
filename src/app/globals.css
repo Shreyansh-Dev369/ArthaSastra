@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #080d0c;
+  --bg-secondary: #111816;
+  --bg-tertiary: #17221f;
+  --surface-border: #23342e;
+  --text-main: #e8ece4;
+  --text-muted: #8e9e95;
+  --accent-gold: #bfa06d;
+  --accent-bronze: #9e8050;
+  --seal-green: #83d94b;
+  --seal-green-bg: rgba(131, 217, 75, 0.12);
+  --seal-red: #f87171;
+  --seal-red-bg: rgba(248, 113, 113, 0.12);
+}
+
+.light {
+  --bg-primary: #f4f6f1;
+  --bg-secondary: #e9ece4;
+  --bg-tertiary: #dee4d8;
+  --surface-border: #cbd5c3;
+  --text-main: #17221f;
+  --text-muted: #5e6f65;
+  --accent-gold: #9e8050;
+  --accent-bronze: #7f6439;
+  --seal-green: #15803d;
+  --seal-green-bg: rgba(21, 128, 61, 0.12);
+  --seal-red: #b91c1c;
+  --seal-red-bg: rgba(185, 28, 28, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-bronze);
+}
+
+/* Editorial Serif Headings */
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-cinzel), Georgia, 'Times New Roman', serif;
+}
+
+/* Monospace readouts */
+code, pre, .font-mono-tech {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Texture and Grid overlays */
+.archival-grid {
+  background-image: 
+    linear-gradient(to right, rgba(158, 128, 80, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(158, 128, 80, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.light .archival-grid {
+  background-image: 
+    linear-gradient(to right, rgba(127, 100, 57, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(127, 100, 57, 0.07) 1px, transparent 1px);
+}
+
+/* Seal stamp animation */
+@keyframes sealPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(131, 217, 75, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 35px rgba(131, 217, 75, 0.4);
+  }
+}
+
+.animate-seal-pulse {
+  animation: sealPulse 4s infinite ease-in-out;
+}
+
+/* Orbit animation */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 32s linear infinite;
+}
+
+/* Accessible focus ring */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
