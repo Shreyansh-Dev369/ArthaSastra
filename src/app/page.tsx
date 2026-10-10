@@ -48,6 +48,7 @@ export default function Home() {
             setActiveTab('narrative');
             scrollToSection('narrative');
           }}
+          onScrollToSection={scrollToSection}
         />
 
         {/* Acts II - IX: Cinematic Archival Storytelling */}
