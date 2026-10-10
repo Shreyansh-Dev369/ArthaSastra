@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Scroll, ShieldAlert, Key, Route, CheckCircle2, FlaskConical, GraduationCap, ChevronRight, Lock, Unlock } from 'lucide-react';
+import { Scroll, ShieldAlert, Key, Route, CheckCircle2, FlaskConical, GraduationCap, ChevronRight, Lock, Eye, Sparkles } from 'lucide-react';
 
 interface StorytellingNarrativeProps {
   onJumpToLab: () => void;
@@ -27,21 +27,21 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
       act: 1,
       tag: 'ACT I',
       title: 'The Royal Archive & The Mandate of Statecraft',
-      subtitle: 'Arthaśāstra Book II (Śāsanādhikāra) & Book V',
+      subtitle: 'Arthaśāstra Book II (Śāsanādhikāra): Sovereign Decrees',
       icon: Scroll,
       summary:
         'In the political realism of Kauṭilya, governance depends upon the fidelity of communication. Writs (śāsana) were drafted by vetted scribes (lekhaka), sealed with royal insignia (mudrā), and entrusted to envoys whose loyalty was subject to unyielding scrutiny.',
       historicalRef:
         '“The King’s decree is the soul of governance. He who corrupts a royal writ, alters its seal, or falsely presents a counterfeit mandate suffers the highest penalty.” — Arthaśāstra II.10',
       interactive: (
-        <div className="p-4 rounded-xl border border-charcoal-700 bg-charcoal-900/80 space-y-3 font-mono text-xs">
-          <div className="flex justify-between items-center text-bronze-400 border-b border-charcoal-700/60 pb-2">
-            <span>COUNCIL OF MINISTERS (Mantripariṣad)</span>
-            <span className="text-[10px] bg-bronze-500/20 px-2 py-0.5 rounded">PATALIPUTRA ARCHIVE</span>
+        <div className="p-4 rounded-xl border border-theme-border bg-theme-inset space-y-3 font-mono text-xs">
+          <div className="flex justify-between items-center text-theme-bronze border-b border-theme-border pb-2">
+            <span className="font-bold">COUNCIL OF MINISTERS (Mantripariṣad)</span>
+            <span className="text-[10px] bg-theme-bronze/15 px-2 py-0.5 rounded font-semibold">PATALIPUTRA CHANCELLERY</span>
           </div>
-          <p className="text-ivory-300/80 leading-relaxed">
+          <p className="text-theme-secondary leading-relaxed">
             The scribes of the Mauryan chancellery utilized distinctive inks, unique scripts, and clay or wax mudrās 
-            to deter interception and forgeries across the fourteen janapadas.
+            to deter interception and forgeries across the imperial janapadas.
           </p>
         </div>
       ),
@@ -49,26 +49,27 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
     {
       act: 2,
       tag: 'ACT II',
-      title: 'The Dispatch: The Envoy & The Sensitive Mandate',
-      subtitle: 'Composing the classified dispatch under clearance tiers',
-      icon: Lock,
+      title: 'The Principle of Secrecy: Intelligence Architecture',
+      subtitle: 'Arthaśāstra Book I (Ch 11–12) & Book V (Ch 3): Covert Conduct',
+      icon: Eye,
       summary:
-        'An envoy (Dūta) is dispatched to a frontier garrison at dawn. The contents must remain unintelligible to bandit hands or hostile spies, while permitting the regional Senāpati (General) to authenticate that the order truly originated from the royal council.',
+        'Kauṭilya structured the state around institutionalized vigilance. Covert operatives (Gūḍhapuruṣa) operated under cover identities, transmitting intelligence back to the center via coded tokens, concealed glyphs, and secret writing (Gūḍhalekha).',
       historicalRef:
-        '“Envoys are classified into three ranks: the Plenipotentiary (Nisṛṣṭārtha), the Envoy with a limited mission (Parimitārtha), and the Carrier of Royal Letters (Śāsanahara).” — Arthaśāstra I.16',
+        '“Spies shall communicate through secret writings (gūḍhalekha) and prearranged signals, ensuring that even if one operative is compromised, the broader network remains impenetrable.” — Arthaśāstra I.12',
       interactive: (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-mono">
-          <div className="p-3 rounded-lg border border-charcoal-700 bg-charcoal-800/60 space-y-1">
-            <span className="text-ivory-300 font-bold block">OPEN (Sarvajanīya)</span>
-            <span className="text-charcoal-600 dark:text-ivory-400/60 text-[11px] block">Public decrees, tax quotas, transit passes</span>
-          </div>
-          <div className="p-3 rounded-lg border border-bronze-500/40 bg-bronze-500/10 space-y-1">
-            <span className="text-bronze-300 font-bold block">COUNSEL (Mantrin)</span>
-            <span className="text-charcoal-600 dark:text-ivory-400/60 text-[11px] block">Provincial governance, logistical dispatches</span>
-          </div>
-          <div className="p-3 rounded-lg border border-royal-leaf/40 bg-royal-leaf/10 space-y-1">
-            <span className="text-royal-leaf font-bold block">SECRET (Gūḍha)</span>
-            <span className="text-charcoal-600 dark:text-ivory-400/60 text-[11px] block">Troop maneuvers, intelligence network briefs</span>
+        <div className="p-4 rounded-xl border border-theme-border bg-theme-inset space-y-2.5 text-xs font-mono">
+          <span className="text-theme-bronze font-bold block uppercase tracking-wider text-[11px]">
+            Institutional Covert Network (Gūḍhapuruṣa)
+          </span>
+          <div className="grid grid-cols-2 gap-2 text-[11px]">
+            <div className="p-2 rounded bg-theme-surface border border-theme-border">
+              <strong className="text-theme-primary block">Samsthāḥ (Stationary)</strong>
+              <span className="text-theme-muted text-[10px]">Monks, merchants, ascetics embedded locally</span>
+            </div>
+            <div className="p-2 rounded bg-theme-surface border border-theme-border">
+              <strong className="text-theme-primary block">Sañcārāḥ (Roving)</strong>
+              <span className="text-theme-muted text-[10px]">Envoys, scouts, couriers across frontiers</span>
+            </div>
           </div>
         </div>
       ),
@@ -76,38 +77,26 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
     {
       act: 3,
       tag: 'ACT III',
-      title: 'The Transformation: Classical Educational Ciphers',
-      subtitle: 'Obfuscating visual form vs modern cryptographic security',
-      icon: Key,
+      title: 'The Scribe and the Message: Clearance Tiers',
+      subtitle: 'Composing classified dispatches under administrative rank',
+      icon: Lock,
       summary:
-        'To demonstrate historical ideas of secret writing (Gūḍhalekha), our laboratory incorporates classical ciphers: the monoalphabetic Caesar shift, the polyalphabetic Vigenère tableau, and reciprocal pair substitutions. We explicitly emphasize that classical ciphers are educational teaching tools and vulnerable to statistical analysis.',
+        'A classified dispatch was addressed to specific administrative tiers. The contents were guarded so that uncertified couriers or intermediate inspectors could not read the mandate without authorization.',
       historicalRef:
-        '“Communication with secret agents shall occur through secret writings (gūḍhalekha) and pre-arranged musical or visual signals.” — Arthaśāstra I.12',
+        '“Envoys are classified into three ranks: the Plenipotentiary (Nisṛṣṭārtha), the Envoy with a limited mission (Parimitārtha), and the Carrier of Royal Letters (Śāsanahara).” — Arthaśāstra I.16',
       interactive: (
-        <div className="p-4 rounded-xl border border-charcoal-700 bg-charcoal-900/90 space-y-3 text-xs font-mono">
-          <div className="flex items-center justify-between">
-            <span className="text-ivory-300 font-bold">Interactive Shift Visualizer:</span>
-            <div className="flex items-center space-x-2">
-              <span className="text-bronze-400">Shift Key: +{demoShift}</span>
-              <input
-                type="range"
-                min="1"
-                max="25"
-                value={demoShift}
-                onChange={e => setDemoShift(Number(e.target.value))}
-                className="w-24 accent-royal-leaf"
-              />
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-mono">
+          <div className="p-3 rounded-lg border border-theme-border bg-theme-surface space-y-1">
+            <span className="text-theme-primary font-bold block">OPEN (Sarvajanīya)</span>
+            <span className="text-theme-muted text-[11px] block">Public decrees, tax quotas, transit passes</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <div className="p-2.5 rounded bg-charcoal-800 border border-charcoal-700">
-              <span className="text-charcoal-600 dark:text-ivory-400/60 block text-[10px] mb-1">PLAINTEXT INPUT</span>
-              <span className="text-ivory-100">{demoTransformText}</span>
-            </div>
-            <div className="p-2.5 rounded bg-charcoal-800 border border-bronze-500/30">
-              <span className="text-bronze-400 block text-[10px] mb-1">CIPHERTEXT (CAESAR +{demoShift})</span>
-              <span className="text-royal-leaf break-all">{caesarShiftDemo(demoTransformText, demoShift)}</span>
-            </div>
+          <div className="p-3 rounded-lg border border-theme-border-strong bg-theme-bronze/10 space-y-1">
+            <span className="text-theme-bronze font-bold block">COUNSEL (Mantrin)</span>
+            <span className="text-theme-muted text-[11px] block">Provincial governance, logistical orders</span>
+          </div>
+          <div className="p-3 rounded-lg border border-theme-seal/40 bg-theme-seal-bg space-y-1">
+            <span className="text-theme-seal font-bold block">SECRET (Gūḍha)</span>
+            <span className="text-theme-muted text-[11px] block">Troop maneuvers, covert intelligence briefs</span>
           </div>
         </div>
       ),
@@ -115,7 +104,46 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
     {
       act: 4,
       tag: 'ACT IV',
-      title: 'The Seal (Mudrā) Evolved: Cryptographic HMAC-SHA-256',
+      title: 'The Transformation: Classical Educational Ciphers',
+      subtitle: 'Visual obfuscation vs mathematical confidentiality',
+      icon: Key,
+      summary:
+        'To demonstrate historical ideas of secret writing (Gūḍhalekha), our laboratory incorporates classical ciphers: the Caesar shift, the polyalphabetic Vigenère tableau, and reciprocal pair substitutions. We emphasize that classical ciphers are educational models vulnerable to frequency analysis.',
+      historicalRef:
+        '“Transformation alters the appearance of the message; but without unforgeable verification, appearance offers no defense.” — Educational Principle',
+      interactive: (
+        <div className="p-4 rounded-xl border border-theme-border bg-theme-inset space-y-3 text-xs font-mono">
+          <div className="flex items-center justify-between">
+            <span className="text-theme-primary font-bold">Interactive Shift Visualizer:</span>
+            <div className="flex items-center space-x-2">
+              <span className="text-theme-bronze">Shift: +{demoShift}</span>
+              <input
+                type="range"
+                min="1"
+                max="25"
+                value={demoShift}
+                onChange={e => setDemoShift(Number(e.target.value))}
+                className="w-24 accent-theme-seal"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="p-2.5 rounded bg-theme-surface border border-theme-border">
+              <span className="text-theme-muted block text-[10px] mb-1 uppercase font-bold">PLAINTEXT</span>
+              <span className="text-theme-primary">{demoTransformText}</span>
+            </div>
+            <div className="p-2.5 rounded bg-theme-surface border border-theme-border-strong">
+              <span className="text-theme-bronze block text-[10px] mb-1 uppercase font-bold">CIPHERTEXT (CAESAR +{demoShift})</span>
+              <span className="text-theme-seal font-bold break-all">{caesarShiftDemo(demoTransformText, demoShift)}</span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      act: 5,
+      tag: 'ACT V',
+      title: 'The Seal (Mudrā): Cryptographic HMAC-SHA-256',
       subtitle: 'Binding message parameters to an unforgeable authentication tag',
       icon: ShieldAlert,
       summary:
@@ -123,74 +151,42 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
       historicalRef:
         '“No traveler or goods shall pass through the toll-gate without the imprint of the royal seal (mudrā-adhyakṣa).” — Arthaśāstra II.34',
       interactive: (
-        <div className="p-4 rounded-xl border border-royal-leaf/30 bg-royal-leaf/5 space-y-2 text-xs font-mono">
-          <span className="text-royal-leaf font-bold block">CANONICAL PROTOCOL BINDING</span>
-          <p className="text-ivory-300/80 leading-relaxed text-[11px]">
-            Unlike naive implementations, our engine deterministically serializes:
+        <div className="p-4 rounded-xl border border-theme-seal-border bg-theme-seal-bg space-y-2 text-xs font-mono">
+          <span className="text-theme-seal font-bold block uppercase tracking-wider">
+            Canonical Protocol Binding
+          </span>
+          <p className="text-theme-secondary leading-relaxed text-[11px]">
+            Unlike naive implementations, our engine deterministically serializes every interpretative field:
             <br />
-            <code className="text-bronze-300 bg-charcoal-900 px-1.5 py-0.5 rounded mt-1 inline-block">
+            <code className="text-theme-bronze bg-theme-surface px-1.5 py-0.5 rounded mt-1 inline-block border border-theme-border">
               {JSON.stringify({ version: "1.0", from: "envoy", level: "secret", cipher: "caesar", params: { shift: 5 }, body: "..." })}
             </code>
           </p>
-          <span className="text-[10px] text-ivory-400/60 block">
+          <span className="text-[10px] text-theme-muted block">
             Altering any single parameter (even the cipher shift) invalidates the HMAC seal immediately.
           </span>
         </div>
       ),
     },
     {
-      act: 5,
-      tag: 'ACT V',
-      title: 'The Journey: Transit Across Courier Outposts',
+      act: 6,
+      tag: 'ACT VI',
+      title: 'The Journey: Movement Across Courier Relays',
       subtitle: 'The perils of channel interception, tampering, and forged mandates',
       icon: Route,
       summary:
-        'The royal courier traverses frontier passes, resting at courier stations (Dūtānudūta). In transit, adversarial forces may attempt to alter the message classification, falsify the sender identity, or tamper with the payload to incite civil rebellion.',
+        'The royal courier traverses frontier passes, resting at courier relay stations (Dūtānudūta). In transit, adversaries may attempt to alter the classification, falsify the sender identity, or tamper with the payload.',
       historicalRef:
         '“The king must establish relay posts separated by appropriate distances, ensuring messages arrive with uncorrupted speed.” — Arthaśāstra II.1',
       interactive: (
-        <div className="relative py-4 px-2">
-          {/* Animated Route Line */}
-          <div className="h-1 bg-charcoal-700 rounded-full overflow-hidden relative">
-            <div className="h-full bg-gradient-to-r from-royal-leaf via-bronze-400 to-royal-leaf animate-pulse w-full" />
+        <div className="relative py-4 px-2 space-y-2 font-mono">
+          <div className="h-1 bg-theme-border rounded-full overflow-hidden relative">
+            <div className="h-full bg-gradient-to-r from-theme-seal via-theme-bronze to-theme-seal animate-pulse w-full" />
           </div>
-          <div className="flex justify-between items-center text-[10px] font-mono text-ivory-400 mt-2">
-            <span>PATALIPUTRA (Origin)</span>
-            <span className="text-bronze-400">RELAY STATION 03</span>
-            <span>CITADEL (Destination)</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      act: 6,
-      tag: 'ACT VI',
-      title: 'Receiver Verification & Clearance Enforcement',
-      subtitle: 'Integrity verified first, clearance verified second, release granted last',
-      icon: CheckCircle2,
-      summary:
-        'Upon receiving the dispatch packet, the recipient operates under strict zero-trust protocol: 1) Recompute the HMAC using the shared key over canonical data. If the tag differs, reject outright. 2) Check if the receiver’s clearance level meets the dispatch classification. 3) Only if both checks pass is the plaintext released.',
-      historicalRef:
-        '“He who reads a sealed dispatch without authorization, or delivers it to an uncertified recipient, shall be degraded in office.” — Arthaśāstra II.10',
-      interactive: (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-          <div className="p-3 rounded-lg border border-royal-leaf/40 bg-royal-leaf/10 space-y-1">
-            <span className="text-royal-leaf font-bold flex items-center space-x-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>ACCEPTANCE CONDITION</span>
-            </span>
-            <span className="text-ivory-300/80 text-[11px] block">
-              Seal tag matches perfectly AND Receiver Clearance &gt;= Packet Level. Plaintext released.
-            </span>
-          </div>
-          <div className="p-3 rounded-lg border border-royal-crimson/40 bg-royal-crimson/10 space-y-1">
-            <span className="text-royal-vermilion font-bold flex items-center space-x-1.5">
-              <ShieldAlert className="w-3.5 h-3.5" />
-              <span>REJECTION CONDITION</span>
-            </span>
-            <span className="text-ivory-300/80 text-[11px] block">
-              Mismatched seal (tampering detected) OR Insufficient clearance. Plaintext withheld.
-            </span>
+          <div className="flex justify-between items-center text-[10px] text-theme-muted">
+            <span className="text-theme-primary font-bold">PATALIPUTRA (Origin)</span>
+            <span className="text-theme-bronze">RELAY OUTPOST 03</span>
+            <span className="text-theme-primary font-bold">CITADEL (Destination)</span>
           </div>
         </div>
       ),
@@ -198,18 +194,51 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
     {
       act: 7,
       tag: 'ACT VII',
-      title: 'The Interactive Laboratory',
-      subtitle: 'Hands-on experimentation with real cryptographic operations',
+      title: 'The Receiver: Zero-Trust Clearance Enforcement',
+      subtitle: 'Integrity verified first, clearance verified second, release granted last',
+      icon: CheckCircle2,
+      summary:
+        'Upon receiving the dispatch packet, the recipient operates under strict zero-trust protocol: 1) Recompute the HMAC using the shared key over canonical data. If the tag differs, reject outright. 2) Check if the receiver’s clearance level meets the dispatch classification. 3) Only if both checks pass is plaintext released.',
+      historicalRef:
+        '“He who reads a sealed dispatch without authorization, or delivers it to an uncertified recipient, shall be degraded in office.” — Arthaśāstra II.10',
+      interactive: (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div className="p-3 rounded-lg border border-theme-seal-border bg-theme-seal-bg space-y-1">
+            <span className="text-theme-seal font-bold flex items-center space-x-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>ACCEPTANCE RULE</span>
+            </span>
+            <span className="text-theme-secondary text-[11px] block">
+              Seal matches perfectly AND Receiver Clearance &gt;= Packet Level. Plaintext released.
+            </span>
+          </div>
+          <div className="p-3 rounded-lg border border-theme-vermilion-border bg-theme-vermilion-bg space-y-1">
+            <span className="text-theme-vermilion font-bold flex items-center space-x-1.5">
+              <ShieldAlert className="w-3.5 h-3.5" />
+              <span>REJECTION RULE</span>
+            </span>
+            <span className="text-theme-secondary text-[11px] block">
+              Mismatched seal (tampering detected) OR Insufficient clearance. Plaintext withheld.
+            </span>
+          </div>
+        </div>
+      ),
+    },
+    {
+      act: 8,
+      tag: 'ACT VIII',
+      title: 'The Laboratory: Interactive Cryptographic Exploration',
+      subtitle: 'Hands-on experimentation with live cryptographic primitives',
       icon: FlaskConical,
       summary:
-        'The historical narrative culminates in a live, functional laboratory. Compose your own dispatches, simulate packet tampering, export and import portable JSON packets, inspect frequency analysis histograms, and run the 20-case test suite.',
+        'The historical narrative culminates in a live, functional laboratory. Compose your own dispatches, simulate packet tampering, export and import portable JSON packets, inspect 26-letter frequency histograms, and run the 20-case test suite.',
       historicalRef:
         '“Experimentation and systematic observation are the prerequisites of statecraft.” — Kauṭilya',
       interactive: (
         <div className="text-center py-2">
           <button
             onClick={onJumpToLab}
-            className="px-5 py-2.5 rounded-lg bg-bronze-500 hover:bg-bronze-400 text-obsidian-950 font-bold text-xs uppercase tracking-wider transition-all"
+            className="px-5 py-2.5 rounded-xl bg-theme-bronze text-theme-canvas font-mono font-bold text-xs uppercase tracking-wider hover:opacity-90 shadow-sm transition-all"
           >
             Launch Interactive Laboratory Below ↓
           </button>
@@ -217,17 +246,17 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
       ),
     },
     {
-      act: 8,
-      tag: 'ACT VIII',
-      title: 'The Epistemological Lesson: Trust Through Verification',
+      act: 9,
+      tag: 'ACT IX',
+      title: 'The Reflection: Trust Through Verification',
       subtitle: 'Jñānam eva Balam — Knowledge as the foundation of security',
       icon: GraduationCap,
       summary:
-        'The overarching teaching of both the Arthaśāstra and modern computer science is that trust cannot be assumed—it must be cryptographically proven. Obfuscation of text is not protection of information. Security requires verified authenticity, cryptographic integrity, and disciplined access control.',
+        'The overarching teaching of both the Arthaśāstra and modern computer science is that trust cannot be assumed—it must be cryptographically proven. Obfuscation is not protection. Security requires verified authenticity, cryptographic integrity, and disciplined access control.',
       historicalRef:
         '“As the unbaked clay vessel dissolves when immersed in water, so does a kingdom perish whose intelligence is without verification.” — Arthaśāstra I.15',
       interactive: (
-        <div className="p-3.5 rounded-lg border border-bronze-500/30 bg-charcoal-900 text-xs text-ivory-300 italic text-center">
+        <div className="p-3.5 rounded-xl border border-theme-border-strong bg-theme-surface text-xs text-theme-primary italic text-center font-serif">
           “Communication without verification is deception; statecraft without vigilance is ruin.”
         </div>
       ),
@@ -235,21 +264,21 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
   ];
 
   return (
-    <section id="narrative" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-charcoal-700/60">
+    <section id="narrative" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-theme-border">
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-bronze-400">
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-theme-bronze font-bold">
           Scroll-Driven Archival Exhibition
         </span>
-        <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-ivory-100 tracking-tight">
-          The Eight Acts of Secure Communication
+        <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-theme-primary tracking-tight">
+          The Nine Acts of Secure Communication
         </h2>
-        <p className="text-sm sm:text-base text-ivory-300/80 leading-relaxed">
+        <p className="text-sm sm:text-base text-theme-secondary leading-relaxed font-sans">
           Journey from the ancient Mauryan chancery to modern cryptographic protocols.
-          Click through each act or explore sequentially.
+          Explore the institutional doctrine of trusted dispatches.
         </p>
       </div>
 
-      {/* Act Selection Pills */}
+      {/* Act Selection Navigation Pills */}
       <div className="flex overflow-x-auto pb-4 gap-2 no-scrollbar mb-10 justify-start lg:justify-center">
         {acts.map(actItem => {
           const isActive = activeAct === actItem.act;
@@ -259,12 +288,12 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
               onClick={() => setActiveAct(actItem.act)}
               className={`px-3.5 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all flex items-center space-x-2 border ${
                 isActive
-                  ? 'bg-bronze-500/20 border-bronze-400 text-bronze-300 shadow-sm'
-                  : 'bg-charcoal-800/60 border-charcoal-700 text-ivory-400 hover:text-ivory-100 hover:bg-charcoal-700/50'
+                  ? 'bg-theme-bronze/15 border-theme-border-strong text-theme-bronze font-bold shadow-sm'
+                  : 'bg-theme-surface border-theme-border text-theme-secondary hover:text-theme-primary hover:bg-theme-subtle'
               }`}
             >
               <span>{actItem.tag}</span>
-              <span className="text-[11px] opacity-70 hidden sm:inline">· {actItem.title.split(':')[0]}</span>
+              <span className="text-[11px] opacity-75 hidden sm:inline">· {actItem.title.split(':')[0]}</span>
             </button>
           );
         })}
@@ -275,51 +304,51 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
         const current = acts.find(a => a.act === activeAct) || acts[0];
         const Icon = current.icon;
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-charcoal-900/60 border border-charcoal-700/80 rounded-2xl p-6 sm:p-10 backdrop-blur-sm shadow-archival-card">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-theme-surface border border-theme-border rounded-2xl p-6 sm:p-10 shadow-card transition-colors duration-200">
             {/* Left Narrative Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-bronze-500/15 border border-bronze-500/40 flex items-center justify-center text-bronze-300">
+                <div className="w-10 h-10 rounded-xl bg-theme-bronze/15 border border-theme-border-strong flex items-center justify-center text-theme-bronze">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-royal-leaf uppercase tracking-wider block font-bold">
+                  <span className="text-xs font-mono text-theme-seal uppercase tracking-wider block font-bold">
                     {current.tag}
                   </span>
-                  <span className="text-xs text-ivory-400 font-mono">{current.subtitle}</span>
+                  <span className="text-xs text-theme-muted font-mono">{current.subtitle}</span>
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-ivory-100 leading-snug">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-theme-primary leading-snug">
                 {current.title}
               </h3>
 
-              <p className="text-sm sm:text-base text-ivory-300/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-theme-secondary leading-relaxed font-sans">
                 {current.summary}
               </p>
 
               {/* Verified Historical Source Reference */}
-              <div className="p-4 rounded-xl border-l-2 border-bronze-400 bg-charcoal-800/80 text-xs sm:text-sm text-ivory-300/90 italic space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-bronze-300 block font-bold not-italic">
+              <div className="p-4 rounded-xl border-l-2 border-theme-bronze bg-theme-inset text-xs sm:text-sm text-theme-primary italic space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-theme-bronze block font-bold not-italic">
                   Scholarly Attestation:
                 </span>
-                <p>{current.historicalRef}</p>
+                <p className="font-serif">{current.historicalRef}</p>
               </div>
 
               {/* Act Navigation Buttons */}
-              <div className="flex items-center space-x-3 pt-2">
+              <div className="flex items-center space-x-3 pt-2 font-mono text-xs">
                 {current.act > 1 && (
                   <button
                     onClick={() => setActiveAct(current.act - 1)}
-                    className="px-3.5 py-2 rounded-lg border border-charcoal-700 bg-charcoal-800 text-xs font-mono text-ivory-300 hover:text-ivory-100"
+                    className="px-3.5 py-2 rounded-lg border border-theme-border bg-theme-surface text-theme-secondary hover:text-theme-primary hover:bg-theme-subtle"
                   >
                     ← Previous Act
                   </button>
                 )}
-                {current.act < 8 ? (
+                {current.act < 9 ? (
                   <button
                     onClick={() => setActiveAct(current.act + 1)}
-                    className="px-4 py-2 rounded-lg bg-bronze-500/20 border border-bronze-500/40 text-xs font-mono text-bronze-300 hover:bg-bronze-500/30 flex items-center space-x-1"
+                    className="px-4 py-2 rounded-lg bg-theme-bronze/15 border border-theme-border-strong text-theme-bronze hover:bg-theme-bronze/25 flex items-center space-x-1 font-bold"
                   >
                     <span>Proceed to Next Act</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -327,7 +356,7 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
                 ) : (
                   <button
                     onClick={onJumpToLab}
-                    className="px-4 py-2 rounded-lg bg-royal-leaf text-obsidian-950 text-xs font-mono font-bold uppercase tracking-wider"
+                    className="px-4 py-2 rounded-lg bg-theme-seal text-theme-canvas font-bold uppercase tracking-wider"
                   >
                     Enter Interactive Lab
                   </button>
@@ -337,12 +366,12 @@ export const StorytellingNarrative: React.FC<StorytellingNarrativeProps> = ({ on
 
             {/* Right Interactive/Visual Showcase Column */}
             <div className="lg:col-span-5">
-              <div className="rounded-xl border border-charcoal-700 bg-charcoal-950/70 p-5 shadow-inner">
-                <div className="flex items-center justify-between mb-4 pb-2 border-b border-charcoal-800">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-bronze-400">
-                    Live Demonstration
+              <div className="rounded-xl border border-theme-border bg-theme-inset p-5 shadow-inner">
+                <div className="flex items-center justify-between mb-4 pb-2 border-b border-theme-border">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-theme-bronze font-bold">
+                    Archival Demonstration
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-charcoal-800 text-ivory-400">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-theme-surface border border-theme-border text-theme-secondary">
                     Interactive
                   </span>
                 </div>

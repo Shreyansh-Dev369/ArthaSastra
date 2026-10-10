@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { BrandedPreloader } from '../components/BrandedPreloader';
 import { Header } from '../components/Header';
 import { HeroArchive } from '../components/HeroArchive';
 import { StorytellingNarrative } from '../components/StorytellingNarrative';
@@ -13,6 +14,7 @@ import { Footer } from '../components/Footer';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>('narrative');
+  const [preloaderDone, setPreloaderDone] = useState<boolean>(false);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -22,8 +24,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-obsidian-950 text-ivory-100 flex flex-col font-sans selection:bg-bronze-500 selection:text-obsidian-950">
-      {/* Top Application Header */}
+    <div className="min-h-screen bg-theme-canvas text-theme-primary flex flex-col font-sans selection:bg-theme-bronze selection:text-theme-canvas transition-colors duration-200">
+      {/* Branded Opening Preloader Sequence */}
+      {!preloaderDone && (
+        <BrandedPreloader onComplete={() => setPreloaderDone(true)} />
+      )}
+
+      {/* Application Top Header & Theme Switcher */}
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -31,7 +38,7 @@ export default function Home() {
       />
 
       <main className="flex-1">
-        {/* Act 0: Archival Opening Experience & Hero */}
+        {/* Act I: Archival Opening Experience & Hero */}
         <HeroArchive
           onEnterLab={() => {
             setActiveTab('dispatch');
@@ -43,7 +50,7 @@ export default function Home() {
           }}
         />
 
-        {/* Acts I - VIII: Cinematic Scroll Storytelling */}
+        {/* Acts II - IX: Cinematic Archival Storytelling */}
         <StorytellingNarrative
           onJumpToLab={() => {
             setActiveTab('dispatch');
@@ -57,7 +64,7 @@ export default function Home() {
         {/* Educational Classical Cipher Laboratory */}
         <ClassicalCipherLab />
 
-        {/* Statistical Cryptanalysis & Frequency Workbench */}
+        {/* Statistical Cryptanalysis & 26-Letter Frequency Workbench */}
         <CryptanalysisWorkbench />
 
         {/* System Automated Test Suite (20 Assertions) */}
@@ -67,7 +74,7 @@ export default function Home() {
         <AcademicContext />
       </main>
 
-      {/* Footer */}
+      {/* Global Application Footer */}
       <Footer />
     </div>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { BookOpen, ExternalLink, ShieldCheck, Feather, Landmark, Award } from 'lucide-react';
+import { BookOpen, ExternalLink, Feather, Landmark, Award } from 'lucide-react';
 
 export const AcademicContext: React.FC = () => {
   const references = [
@@ -40,60 +40,60 @@ export const AcademicContext: React.FC = () => {
   ];
 
   return (
-    <section id="academic" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-charcoal-700/60">
+    <section id="academic" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-theme-border">
       <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-bronze-500/40 bg-bronze-500/10 text-xs font-mono text-bronze-300 uppercase tracking-widest">
+        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-theme-border-strong bg-theme-bronze/10 text-xs font-mono text-theme-bronze uppercase tracking-widest font-bold">
           <BookOpen className="w-3.5 h-3.5" />
           <span>Section 05 / Scholarly Framework</span>
         </div>
-        <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-ivory-100 tracking-tight">
+        <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-theme-primary tracking-tight">
           Academic Context & Indian Knowledge Systems
         </h2>
-        <p className="text-sm sm:text-base text-ivory-300/80 leading-relaxed">
+        <p className="text-sm sm:text-base text-theme-secondary leading-relaxed font-sans">
           Historical fidelity meets modern computational rigor. Discover the institutional foundations 
           of the Mauryan state and the epistemological discipline of Kauṭilyan statecraft.
         </p>
       </div>
 
-      <div className="bg-charcoal-900/80 border border-charcoal-700/80 rounded-2xl p-6 sm:p-10 shadow-archival-card space-y-10">
+      <div className="bg-theme-surface border border-theme-border rounded-2xl p-6 sm:p-10 shadow-card space-y-10">
         {/* Core Treatises Comparison Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-5 rounded-xl border border-charcoal-700 bg-charcoal-950/70 space-y-3">
-            <div className="w-9 h-9 rounded-lg bg-bronze-500/15 border border-bronze-500/30 flex items-center justify-center text-bronze-300">
+          <div className="p-5 rounded-xl border border-theme-border bg-theme-inset space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-theme-bronze/15 border border-theme-border-strong flex items-center justify-center text-theme-bronze">
               <Feather className="w-4 h-4" />
             </div>
-            <h3 className="font-editorial text-base font-bold text-ivory-100">
+            <h3 className="font-editorial text-base font-bold text-theme-primary">
               The Royal Writ (Śāsana)
             </h3>
-            <p className="text-xs text-ivory-300/80 leading-relaxed font-sans">
-              Book II, Chapter 10 of the <em className="text-bronze-300 not-italic">Arthaśāstra</em> defines 
+            <p className="text-xs text-theme-secondary leading-relaxed font-sans">
+              Book II, Chapter 10 of the <em className="text-theme-bronze not-italic font-semibold">Arthaśāstra</em> defines 
               the qualifications of the royal scribe (lekhaka): mastery of all scripts, clarity of expression, 
               incorruptible integrity, and the sacred preservation of the sovereign seal.
             </p>
           </div>
 
-          <div className="p-5 rounded-xl border border-charcoal-700 bg-charcoal-950/70 space-y-3">
-            <div className="w-9 h-9 rounded-lg bg-royal-leaf/15 border border-royal-leaf/30 flex items-center justify-center text-royal-leaf">
+          <div className="p-5 rounded-xl border border-theme-border bg-theme-inset space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-theme-seal-bg border border-theme-seal-border flex items-center justify-center text-theme-seal">
               <Landmark className="w-4 h-4" />
             </div>
-            <h3 className="font-editorial text-base font-bold text-ivory-100">
+            <h3 className="font-editorial text-base font-bold text-theme-primary">
               The Royal Seal (Mudrā)
             </h3>
-            <p className="text-xs text-ivory-300/80 leading-relaxed font-sans">
-              The <em className="text-royal-leaf not-italic">Mudrādhyakṣa</em> (Superintendent of Seals) 
+            <p className="text-xs text-theme-secondary leading-relaxed font-sans">
+              The <em className="text-theme-seal not-italic font-semibold">Mudrādhyakṣa</em> (Superintendent of Seals) 
               ensured that no person, commodity, or royal decree could traverse imperial borders without 
               an authentic impression. Mudrā represents the intellectual precursor to modern message authentication codes (MACs).
             </p>
           </div>
 
-          <div className="p-5 rounded-xl border border-charcoal-700 bg-charcoal-950/70 space-y-3">
-            <div className="w-9 h-9 rounded-lg bg-royal-amber/15 border border-royal-amber/30 flex items-center justify-center text-royal-amber">
+          <div className="p-5 rounded-xl border border-theme-border bg-theme-inset space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-theme-bronze/20 border border-theme-border-strong flex items-center justify-center text-theme-bronze">
               <Award className="w-4 h-4" />
             </div>
-            <h3 className="font-editorial text-base font-bold text-ivory-100">
+            <h3 className="font-editorial text-base font-bold text-theme-primary">
               Covert Writing (Gūḍhalekha)
             </h3>
-            <p className="text-xs text-ivory-300/80 leading-relaxed font-sans">
+            <p className="text-xs text-theme-secondary leading-relaxed font-sans">
               Book I, Chapter 12 details communication with secret intelligence operatives (Gūḍhapuruṣa) 
               via prearranged ciphers, hidden inscriptions, and covert signifiers. These methods demonstrate ancient 
               awareness of the need for information concealment.
@@ -101,14 +101,14 @@ export const AcademicContext: React.FC = () => {
           </div>
         </div>
 
-        {/* Clear Conceptual Demarcation Table */}
+        {/* Conceptual Demarcation Table */}
         <div className="space-y-4">
-          <h3 className="font-editorial text-xl font-bold text-ivory-100">
+          <h3 className="font-editorial text-xl font-bold text-theme-primary">
             Conceptual Demarcation: Ancient Inspiration vs Modern Technology
           </h3>
-          <div className="overflow-x-auto border border-charcoal-800 rounded-xl">
+          <div className="overflow-x-auto border border-theme-border rounded-xl">
             <table className="w-full text-left font-mono text-xs">
-              <thead className="bg-charcoal-950 border-b border-charcoal-800 text-charcoal-600 dark:text-ivory-400/60 uppercase text-[10px]">
+              <thead className="bg-theme-inset border-b border-theme-border text-theme-muted uppercase text-[10px] font-bold">
                 <tr>
                   <th className="p-3">Domain</th>
                   <th className="p-3">Historical Concept (Arthaśāstra)</th>
@@ -116,30 +116,30 @@ export const AcademicContext: React.FC = () => {
                   <th className="p-3">Educational Role in this Lab</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-charcoal-800">
-                <tr className="hover:bg-charcoal-800/30">
-                  <td className="p-3 font-bold text-ivory-100">Provenance & Integrity</td>
-                  <td className="p-3 text-bronze-300">Royal Clay/Wax Seal (Mudrā)</td>
-                  <td className="p-3 text-royal-leaf">HMAC-SHA-256 (RFC 2104)</td>
-                  <td className="p-3 text-ivory-300">Cryptographically authenticates packet fields</td>
+              <tbody className="divide-y divide-theme-border">
+                <tr className="hover:bg-theme-subtle">
+                  <td className="p-3 font-bold text-theme-primary">Provenance & Integrity</td>
+                  <td className="p-3 text-theme-bronze font-medium">Royal Clay/Wax Seal (Mudrā)</td>
+                  <td className="p-3 text-theme-seal font-bold">HMAC-SHA-256 (RFC 2104)</td>
+                  <td className="p-3 text-theme-secondary">Cryptographically authenticates packet fields</td>
                 </tr>
-                <tr className="hover:bg-charcoal-800/30">
-                  <td className="p-3 font-bold text-ivory-100">Text Concealment</td>
-                  <td className="p-3 text-bronze-300">Gūḍhalekha (Secret script / tokens)</td>
-                  <td className="p-3 text-royal-amber">Classical Caesar / Vigenère ciphers</td>
-                  <td className="p-3 text-ivory-300">Demonstrates shift mechanics & vulnerability to analysis</td>
+                <tr className="hover:bg-theme-subtle">
+                  <td className="p-3 font-bold text-theme-primary">Text Concealment</td>
+                  <td className="p-3 text-theme-bronze font-medium">Gūḍhalekha (Secret script / tokens)</td>
+                  <td className="p-3 text-theme-bronze font-medium">Classical Caesar / Vigenère ciphers</td>
+                  <td className="p-3 text-theme-secondary">Demonstrates shift mechanics & vulnerability to analysis</td>
                 </tr>
-                <tr className="hover:bg-charcoal-800/30">
-                  <td className="p-3 font-bold text-ivory-100">Access Control</td>
-                  <td className="p-3 text-bronze-300">Envoys: Nisṛṣṭārtha, Parimitārtha, Śāsanahara</td>
-                  <td className="p-3 text-ivory-200">Role-Based Access Control (Clearance Tiers)</td>
-                  <td className="p-3 text-ivory-300">Demonstrates authorization policy: Open, Counsel, Secret</td>
+                <tr className="hover:bg-theme-subtle">
+                  <td className="p-3 font-bold text-theme-primary">Access Control</td>
+                  <td className="p-3 text-theme-bronze font-medium">Envoys: Nisṛṣṭārtha, Parimitārtha, Śāsanahara</td>
+                  <td className="p-3 text-theme-primary font-medium">Role-Based Access Control (Clearance Tiers)</td>
+                  <td className="p-3 text-theme-secondary">Demonstrates authorization policy: Open, Counsel, Secret</td>
                 </tr>
-                <tr className="hover:bg-charcoal-800/30">
-                  <td className="p-3 font-bold text-ivory-100">Message Transport</td>
-                  <td className="p-3 text-bronze-300">Courier Relay Stations (Dūtānudūta)</td>
-                  <td className="p-3 text-ivory-200">JSON Network Packet Transmission</td>
-                  <td className="p-3 text-ivory-300">Simulates hostile interception and channel tampering</td>
+                <tr className="hover:bg-theme-subtle">
+                  <td className="p-3 font-bold text-theme-primary">Message Transport</td>
+                  <td className="p-3 text-theme-bronze font-medium">Courier Relay Stations (Dūtānudūta)</td>
+                  <td className="p-3 text-theme-primary font-medium">JSON Network Packet Transmission</td>
+                  <td className="p-3 text-theme-secondary">Simulates hostile interception and channel tampering</td>
                 </tr>
               </tbody>
             </table>
@@ -147,10 +147,10 @@ export const AcademicContext: React.FC = () => {
         </div>
 
         {/* Scholarly Bibliography */}
-        <div className="space-y-4 pt-4 border-t border-charcoal-700/80">
+        <div className="space-y-4 pt-4 border-t border-theme-border">
           <div className="flex items-center space-x-2">
-            <BookOpen className="w-4 h-4 text-bronze-300" />
-            <h3 className="font-editorial text-lg font-bold text-ivory-100">
+            <BookOpen className="w-4 h-4 text-theme-bronze" />
+            <h3 className="font-editorial text-lg font-bold text-theme-primary">
               Verified Scholarly Bibliography & Standards
             </h3>
           </div>
@@ -161,19 +161,19 @@ export const AcademicContext: React.FC = () => {
                 href={ref.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-4 rounded-xl border border-charcoal-800 bg-charcoal-950/60 hover:border-bronze-500/40 hover:bg-charcoal-900 transition-all flex flex-col justify-between space-y-2"
+                className="group p-4 rounded-xl border border-theme-border bg-theme-inset hover:border-theme-border-strong hover:bg-theme-subtle transition-all flex flex-col justify-between space-y-2 shadow-sm"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
-                    <strong className="text-xs font-editorial font-bold text-ivory-100 group-hover:text-bronze-300 transition-colors">
+                    <strong className="text-xs font-editorial font-bold text-theme-primary group-hover:text-theme-bronze transition-colors">
                       {ref.title}
                     </strong>
-                    <ExternalLink className="w-3.5 h-3.5 text-charcoal-600 dark:text-ivory-400/60 group-hover:text-bronze-300 shrink-0 mt-0.5" />
+                    <ExternalLink className="w-3.5 h-3.5 text-theme-muted group-hover:text-theme-bronze shrink-0 mt-0.5" />
                   </div>
-                  <span className="text-[11px] font-mono text-bronze-400 block mt-0.5">
+                  <span className="text-[11px] font-mono text-theme-bronze block mt-0.5 font-medium">
                     {ref.author} · {ref.publication}
                   </span>
-                  <p className="text-[11px] text-ivory-400/80 font-sans mt-2 leading-relaxed">
+                  <p className="text-[11px] text-theme-secondary font-sans mt-2 leading-relaxed">
                     {ref.annotation}
                   </p>
                 </div>
